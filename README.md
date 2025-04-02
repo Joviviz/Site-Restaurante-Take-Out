@@ -1,9 +1,12 @@
 # Site de Restaurante Take-Out
 
+> Site voltado para a compra de lanches. Modelo voltado ao Take-Out, o usuário vai ao restaurante buscar o pedido feito. 
+> Funcionalidades são um sistema de cadastro/login, browse de cardápio, carrinho de comprar e métodos de pagamento.
+
 ## 👥 Integrantes  
 
-| Nome | Registro de Aluno (RA) | Foto de Perfil |
+Foto de Perfil | Registro de Aluno (RA) | Nome |
 | --- | --- | --- |
-| João Pedro I. Vieira | 22252264 | <img src='https://avatars.githubusercontent.com/u/101208535?v=4' width="80" height="80"> |
-| Eric Gomes Barreto | 654321 | <img src='https://avatars.githubusercontent.com/u/111282811?v=4' width="80" height="80"> |
-| Leonardo Chung Bezerra | 789012 | !<img src='https://avatars.githubusercontent.com/u/110557881?v=4' width="80" height="80"> |
+| <img src='https://avatars.githubusercontent.com/u/101208535?v=4' width="80" height="80"> | 22252263 | João Pedro I. Vieira |
+| <img src='https://avatars.githubusercontent.com/u/111282811?v=4' width="80" height="80"> | 22250196 | Eric Gomes Barreto | 
+| <img src='https://avatars.githubusercontent.com/u/110557881?v=4' width="80" height="80"> | 22250316 | Leonardo Chung Bezerra | 
