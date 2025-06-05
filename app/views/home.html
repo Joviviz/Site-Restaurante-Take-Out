@@ -1,11 +1,22 @@
 <link href="/app/views/static/css/home.css" rel="stylesheet" />
 
 <ng-include src="'views/templates/navbar.html'"></ng-include>
-hello
+
+<h1 class="bemvindo-h1">Bem vindo ao TakeOut!</h1>
 
 <div class="container mt-5">
-    <h1>Bem-vindo ao TakeOut!</h1>
-    <p>O melhor restaurante Take Out do Brasil!</p>
-    <p>Acesse o sistema para comprar sua refeição</p>
-    <a href="#!login" class="btn btn-primary">ENTRAR</a>
+
+    <!--BACKEND - Lista de Ofertas a ser carregada-->
+  <div class="card" style="width: 18rem">
+    <img src="/app/views/static/imgs/pizza-template.jpeg" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">Desconto de 80% em pizzas!</h5>
+      <p class="card-text">
+        Adicionar ao carrinho?
+      </p>
+      <a href="#" class="btn btn-primary">Adicionar</a>
+    </div>
+  </div>
+
+
 </div>
