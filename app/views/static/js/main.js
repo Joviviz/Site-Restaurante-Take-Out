@@ -12,6 +12,9 @@ angular.module('takeOutApp').config(['$routeProvider',
             when('/register', {
                 templateUrl: '/views/register.html'
             }).
+            when('/menu', {
+                templateUrl: '/views/menu.html'
+            }).
             otherwise('/home')
         }
     ]);
