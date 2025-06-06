@@ -8,10 +8,13 @@
 
 body{
     background-color: #F8F8F8 !important;
+
 }
 
 
 .bemvindo-h1 {
+    padding-top: 3rem;
+    font-size: 4rem;
     font-weight: bold;
     color: #000000;
     text-shadow: 1px 1px #8e8e8e;
