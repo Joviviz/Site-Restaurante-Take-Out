@@ -19,7 +19,7 @@ body {
   background-color: var(--dark-night);
 
   background-image: url('../imgs/food-bg.png');
-  background-size: 65%;
+  background-size: 50%;
   background-position: center;
   background-attachment: fixed;
   background-repeat: repeat;
