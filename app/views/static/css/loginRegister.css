@@ -1,9 +1,11 @@
-
 :root {
-  --bg-color: #C7CCC7;
-  --color-text: #F2F3F2;
-  --bg-form: #4a422e;
+  --dark-night: #000000;
+  --light-grey: #b1b1b1;
+  --grey-grey: #151515;
+  --bluish-blue: #3b5bf2;
 }
+
+
 
 body {
   margin: 0;
@@ -13,25 +15,25 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-  background-color: var(--bg-color);
-  
+  font-family: "GFS Didot", sans-serif;
+  background-color: var(--dark-night);
+
   background-image: url('../imgs/food-bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 65%;
   background-position: center;
   background-attachment: fixed;
+  background-repeat: repeat;
 }
 
 .form-container {
   padding: 2em 4em 4em 4em;
   border-radius: 20px;
-  background-color: var(--bg-form);
-  box-shadow: -2px 5px 5px 0px #4B534B;
+  background-color: var(--dark-night);
+  box-shadow: -2px 5px 5px 0px #ffffff;
 }
 
 .form-container h3 {
-  color: var(--color-text);
+  color: white;
   font-size: 1.5em;
   font-weight: 600;
   margin: 0;
@@ -47,31 +49,31 @@ body {
 .input-field {
   background: transparent;
   border: none;
-  border-bottom: 2px solid var(--color-text);
+  border-bottom: 2px solid white;
   display: block;
   width: 100%;
   padding: 15px 0 5px 0;
   font-size: 18px;
-  color: var(--color-text);
+  color: white;
 }
 
 .input-label {
-  color: var(--color-text);
+  color: white;
 }
 
-.input-link{
+.input-link {
   margin: 40px 0 20px 0;
-  color: var(--color-text);
+  color: white;
   text-align: center;
 }
 
 .input-link a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .input-link a:hover {
-    text-decoration:underline;
+  text-decoration: underline;
 }
 
 .actions button {
@@ -80,7 +82,7 @@ body {
   border: none;
   text-decoration: none;
   text-align: center;
-  color: var(--color-text);
+  color: white;
   border-radius: 5px;
   font-weight: bold;
   font-size: 14px;
@@ -89,4 +91,8 @@ body {
 
 img {
   filter: grayscale(100%);
+}
+
+*{
+  color: white;
 }
