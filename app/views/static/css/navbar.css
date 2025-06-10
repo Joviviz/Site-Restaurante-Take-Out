@@ -1,7 +1,7 @@
 :root{
     --dark-night: #000000;
     --light-grey:#b1b1b1;
-    --grey-grey:#202020;
+    --grey-grey:#151515;
     --bluish-blue: #3b5bf2;
 }
 
@@ -36,12 +36,22 @@ body{
     background-color: var(--grey-grey) !important;
 }
 
-.nav-link{
-    color: white;
+.dropdown-menu{
+    background-color: var(--dark-night);
 }
 
-.nav-link:hover{
-    color: var(--light-grey);
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--light-grey) !important;
+}
+
+.nav-link:focus,
+.nav-link:active {
+  color: white !important;
 }
 
 .navbar-icon{
