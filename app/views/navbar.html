@@ -17,8 +17,10 @@
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
         aria-label="Alternar navegação"
+
       >
-        <span class="navbar-toggler-icon"></span>
+        <span>MENU</span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
       </button>
 
       <div
@@ -28,16 +30,18 @@
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header border-bottom border-white">
-          <a class="navbar-brand" href="#!home.html">
+          <a class="navbar-brand text-white" href="#!home.html">
             <!-- <img class="navbar-icon" src="static/imgs/pizza-template.jpeg" alt="Logo" /> -->
             TakeOut
           </a>
           <button
             type="button"
-            class="btn-close border border-white"
+            class="navbar-toggler border border-white ms-auto"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button>
+          >
+          <span>X</span>
+          </button>
         </div>
 
         <div class="offcanvas-body w-100">
@@ -71,7 +75,7 @@
               >
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item ms-3 dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
