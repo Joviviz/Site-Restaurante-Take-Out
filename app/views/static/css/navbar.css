@@ -1,55 +1,65 @@
 :root{
-    --backgroud-white: #fff;
-    --the-red:#E74C3C;
-    --the-otherred:#f75f4e;
-    --leaf-green:#27AE60;
-    --brownbrown:#5D4037;
-    --goldgold:#DAA520;
+    --dark-night: #000000;
+    --light-grey:#b1b1b1;
+    --grey-grey:#202020;
+    --bluish-blue: #3b5bf2;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: "GFS Didot", sans-serif;
 }
 
 body{
-    margin-top: 120px;
+    background-color: var(--dark-night);
+    background-repeat: no-repeat;
+    background-size: cover;      
+    background-attachment: fixed;
 }
 
-.navbar {
-    background-color: var(--the-red) !important;
-    border-bottom: 2px solid #000;
-    font-family: 'Georgia', serif;
-    padding: 10px 30px;
+.navbar{
+    background-color: var(--dark-night) !important;
 }
 
-.navbar-brand {
-    font-size: 48px;
-    font-weight: bold;
-    color: #000;
-    text-shadow: 1px 1px var(--backgroud-white);
-    margin-right: 20px;
+.navbar-nav{
+    background-color: var(--dark-night) !important;
 }
 
-.navbar-text {
-    font-size: 28px;
-    color: var(--backgroud-white);
-}
-
-.navbar .btn {
-    font-size: 16px;
-    margin-left: 10px;
-}
-
-.container-fluid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.offcanvas-header{
+    background-color: var(--dark-night) !important;
 }
 
 .offcanvas{
-    background-color: var(--the-otherred);
+    background-color: var(--grey-grey) !important;
 }
 
-.btn-success{
-    background-color: var(--leaf-green);
+.nav-link{
+    color: white;
 }
 
-.nav-link {
-    color: var(--backgroud-white);
+.nav-link:hover{
+    color: var(--light-grey);
+}
+
+.navbar-icon{
+    height: 50px;
+}
+
+.home-wrapper{
+    background-color:var(--bluish-blue) ;
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
+}
+.navbar-brand:hover{
+    color: var(--light-grey);
+}
+
+*{
+    color: white;
 }
