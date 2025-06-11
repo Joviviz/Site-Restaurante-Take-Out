@@ -15,8 +15,8 @@ angular.module('takeOutApp').config(['$routeProvider',
             when('/menu', {
                 templateUrl: '/views/menu.html'
             }).
-            when('/test', {
-                templateUrl: '/views/test.html'
+            when('/cart', {
+                templateUrl: '/views/cart.html'
             }).
             otherwise('/home')
         }
