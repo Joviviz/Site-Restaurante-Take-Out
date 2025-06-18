@@ -1,0 +1,75 @@
+:root{
+    --dark-night: #000000;
+    --light-grey:#b1b1b1;
+    --grey-grey:#151515;
+    --bluish-blue: #3b5bf2;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: "GFS Didot", sans-serif;
+}
+
+body{
+    background-color: var(--dark-night);
+    background-repeat: no-repeat;
+    background-size: cover;      
+    background-attachment: fixed;
+}
+
+.navbar{
+    background-color: var(--dark-night) !important;
+}
+
+.navbar-nav{
+    background-color: var(--dark-night) !important;
+}
+
+.offcanvas-header{
+    background-color: var(--dark-night) !important;
+}
+
+.offcanvas{
+    background-color: var(--grey-grey) !important;
+}
+
+.dropdown-menu{
+    background-color: var(--dark-night);
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--light-grey) !important;
+}
+
+.nav-link:focus,
+.nav-link:active {
+  color: white !important;
+}
+
+.navbar-icon{
+    height: 50px;
+}
+
+.home-wrapper{
+    background-color:var(--bluish-blue) ;
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
+}
+.navbar-brand:hover{
+    color: var(--light-grey);
+}
+
+*{
+    color: white;
+}

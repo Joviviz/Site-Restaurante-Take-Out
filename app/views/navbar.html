@@ -1,0 +1,98 @@
+<link href="/views/static/css/navbar.css" rel="stylesheet" />
+
+<header>
+  <nav
+    class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow border-bottom border-white"
+  >
+    <div class="container-fluid mx-5">
+      <a class="navbar-brand" href="#!home.html">
+        <img class="navbar-icon" src="/views/static/imgs/logo.png" alt="Logo" />
+        TakeOut
+      </a>
+
+      <button
+        class="navbar-toggler border border-white"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Alternar navegação"
+
+      >
+        <span>MENU</span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+      </button>
+
+      <div
+        class="offcanvas offcanvas-end border-left border-white"
+        id="offcanvasNavbar"
+        tabindex="-1"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header border-bottom border-white">
+          <a class="navbar-brand text-white" href="#!home.html">
+            <img class="navbar-icon" src="/views/static/imgs/logo.png" alt="Logo" />
+            TakeOut
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler border border-white ms-auto"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+          <span>X</span>
+          </button>
+        </div>
+
+        <div class="offcanvas-body w-100">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 rounded">
+            <li class="nav-item ms-3">
+              <a
+                class="nav-link d-flex align-items-center"
+                aria-current="page"
+                href="#!home"
+              >
+                Home
+              </a>
+            </li>
+            <li class="nav-item ms-3">
+              <a
+                class="nav-link d-flex align-items-center"
+                aria-current="page"
+                href="#!menu"
+              >
+                Cardápio
+              </a>
+            </li>
+            <li class="nav-item ms-3">
+              <a class="nav-link d-flex align-items-center" href="#!"
+                >Carrinho</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a class="nav-link d-flex align-items-center" href="#!"
+                >Sobre Nós</a
+              >
+            </li>
+
+            <li class="nav-item ms-3 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Entrar
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="btn btn-outline-light" href="#!register">Cadastrar</a></li>
+                <li><a class="btn btn-outline-light" href="#!login">Fazer Login</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

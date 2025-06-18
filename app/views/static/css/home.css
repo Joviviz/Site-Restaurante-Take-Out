@@ -1,0 +1,12 @@
+
+
+.bemvindo-h1 {
+    font-weight: normal;
+    text-shadow: 1px 1px #8e8e8e;
+    margin-right: 20px;
+}
+
+.carousel-item img {
+  height: 800px;          
+  object-fit: cover; 
+}

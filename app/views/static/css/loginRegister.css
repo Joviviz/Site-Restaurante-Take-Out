@@ -1,0 +1,98 @@
+:root {
+  --dark-night: #000000;
+  --light-grey: #b1b1b1;
+  --grey-grey: #151515;
+  --bluish-blue: #3b5bf2;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "GFS Didot", sans-serif;
+  background-color: var(--dark-night);
+
+  background-image: url('../imgs/food-bg.png');
+  background-size: 50%;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+
+.form-container {
+  padding: 2em 4em 4em 4em;
+  border-radius: 20px;
+  background-color: var(--dark-night);
+  box-shadow: -2px 5px 5px 0px #ffffff;
+}
+
+.form-container h3 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0;
+  padding: 35px 0px;
+}
+
+.input-wrap {
+  position: relative;
+  margin: 10px 0px 50px 0px;
+  width: 100%;
+}
+
+.input-field {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  display: block;
+  width: 100%;
+  padding: 15px 0 5px 0;
+  font-size: 18px;
+  color: white;
+}
+
+.input-label {
+  color: white;
+}
+
+.input-link {
+  margin: 40px 0 20px 0;
+  color: white;
+  text-align: center;
+}
+
+.input-link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.input-link a:hover {
+  text-decoration: underline;
+}
+
+.actions button {
+  margin-top: 15px;
+  padding: 0.6em 1em;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+img {
+  filter: grayscale(100%);
+}
+
+*{
+  color: white;
+}
