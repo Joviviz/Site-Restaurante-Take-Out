@@ -16,3 +16,11 @@ Foto de Perfil | Registro de Aluno (RA) | Nome |
 ```
 pip install flask flask-cors mysql-connector-python
 ```
+
+## Test
+{
+  "nome": "Maria Oliveira",
+  "email": "maria.oliveira@example.com",
+  "senha": "minhasenha123",
+  "role": "admin"
+}
