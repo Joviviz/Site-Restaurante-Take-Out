@@ -1,24 +1,23 @@
-<!-- Stylesheet-->
 <link href="/views/static/css/loginRegister.css" rel="stylesheet" />
 
-<!--BACKEND - LOGIN-->
-<div class="form-container">
-  <p class="form-title display-4">Entrar na Conta</p>
-  <div class="input-wrap">
-    <h4 class="input-label">Email</h4>
-    <input type="text" class="input-field" required />
-  </div>
-  <div class="input-wrap">
-    <h4 class="input-label">Senha</h4>
-    <input type="text" class="input-field" required />
-  </div>
-  <div class="input-wrap">
-    <p class="input-link">
-      <a href="#!register"> Não possui cadastro? Cadastre aqui! </a>
-    </p>
-  </div>
-  <div class="actions">
-    <a href="#!menu" class="btn btn-success">Entrar</a>
-    <a href="#!home" class="btn btn-danger">Voltar</a>
-  </div>
+<div class="form-container" ng-controller="LoginController">
+  <p class="form-title display-4">Entrar na Conta</p>
+  <div class="input-wrap">
+    <h4 class="input-label">Email</h4>
+    <input type="email" class="input-field" ng-model="user.email" required />
+  </div>
+  <div class="input-wrap">
+    <h4 class="input-label">Senha</h4>
+    <input type="password" class="input-field" ng-model="user.senha" required />
+  </div>
+  <div class="input-wrap">
+    <p class="input-link">
+      <a href="#!register"> Não possui cadastro? Cadastre aqui! </a>
+    </p>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn btn-success" ng-click="login()">Entrar</button>
+    <a href="#!home" class="btn btn-danger">Voltar</a>
+  </div>
+  <p ng-if="message" class="text-danger mt-3">{{ message }}</p>
 </div>

@@ -3,7 +3,7 @@ from flask_cors import CORS
 import mysql.connector
 
 app = Flask(__name__,
-            static_url_path='', 
+            static_url_path='',
             static_folder='app')
 CORS(app)
 
@@ -22,7 +22,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="127.0.0.1",
         user="root",
-        password="",
+        password="252411",
         database="takeout_db"
     )
 
@@ -33,12 +33,13 @@ def criar_usuario():
     nome = data.get('nome')
     email = data.get('email')
     senha = data.get('senha')
-    role = data.get('role')
+    cargo = data.get('cargo') # ALTERADO: de 'role' para 'cargo'
 
     con = get_db_connection()
     cursor = con.cursor()
-    query = 'INSERT INTO Usuario (nome, email, senha, role) VALUES (%s, %s, %s, %s)'
-    cursor.execute(query, (nome, email, senha, role))
+    # ALTERADO: Coluna no DB para 'cargo' e passando a variável 'cargo'
+    query = 'INSERT INTO Usuario (nome, email, senha, cargo) VALUES (%s, %s, %s, %s)'
+    cursor.execute(query, (nome, email, senha, cargo))
     con.commit()
     con.close()
     return jsonify({'message': f'Usuário {nome} criado com sucesso!'}), 201
@@ -51,13 +52,15 @@ def login_usuario():
 
     con = get_db_connection()
     cursor = con.cursor()
-    query = 'SELECT id, nome, role FROM Usuario WHERE email = %s AND senha = %s'
+    # ALTERADO: Coluna no DB para 'cargo'
+    query = 'SELECT id, nome, cargo FROM Usuario WHERE email = %s AND senha = %s'
     cursor.execute(query, (email, senha))
     usuario = cursor.fetchone()
     con.close()
 
     if usuario:
-        return jsonify({'message': 'Login bem-sucedido!', 'usuario': {'id': usuario[0], 'nome': usuario[1], 'role': usuario[2]}}), 200
+        # ALTERADO: Retorno JSON para 'cargo'
+        return jsonify({'message': 'Login bem-sucedido!', 'usuario': {'id': usuario[0], 'nome': usuario[1], 'cargo': usuario[2]}}), 200
     else:
         return jsonify({'message': 'Credenciais inválidas.'}), 401
 
@@ -183,7 +186,6 @@ def obter_pagamento(pedido_id):
         return jsonify({'metodo': pagamento[0], 'valor': pagamento[1], 'status': pagamento[2]}), 200
     else:
         return jsonify({'message': 'Pagamento não encontrado'}), 404
-    
 
 
 if __name__ == '__main__':
