@@ -1,0 +1,56 @@
+<ng-include src="'views/navbar.html'"></ng-include>
+
+<div class="container-fluid bg-black text-white py-5 px-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="display-4">Carrinho</h1>
+    <a href="#!cart" class="btn btn-outline-light px-4 py-2">
+      Ir para pagamento
+    </a>
+  </div>
+
+
+  <div class="container-fluid bg-black text-white py-5 px-4">
+  <h2 class="fw-light mb-4">
+    Carrinho <span class="fw-bold">(2 items)</span>
+  </h2>
+  <hr class="border-secondary">
+
+  <!-- Item do carrinho -->
+  <div class="d-flex align-items-center mb-4">
+    <img src="/views/static/imgs/shop2.png" alt="" class="me-3 rounded" style="width: 100px; height: auto;">
+    
+    <div class="flex-grow-1">
+      <h4 class="mb-1">Salada de Frango</h4>
+      <p class="mb-1">R$ 80,00</p>
+
+      <!-- Quantidade -->
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-light btn-sm">−</button>
+        <span class="mx-3">2</span>
+        <button class="btn btn-outline-light btn-sm">+</button>
+      </div>
+    </div>
+
+    <!-- Total item -->
+    <div class="text-end">
+      <p class="fs-5">R$ 160,00</p>
+      <button class="btn btn-link text-danger"><i class="bi bi-trash"></i></button>
+    </div>
+  </div>
+
+  <hr class="border-secondary">
+
+  <!-- Subtotal -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Subtotal</h5>
+    <h5 class="mb-0">R$ 160,00</h5>
+  </div>
+
+  <!-- Botões -->
+  <div class="d-grid gap-3">
+    <button class="btn btn-outline-light fw-bold py-2">Checkout</button>
+  </div>
+
+</div>
+
+</div>
