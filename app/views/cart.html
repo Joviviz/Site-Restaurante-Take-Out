@@ -1,56 +1,76 @@
+<!-- views/cart.html - Refinamento do Controle de Login -->
+
 <ng-include src="'views/navbar.html'"></ng-include>
 
-<div class="container-fluid bg-black text-white py-5 px-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <h1 class="display-4">Carrinho</h1>
-    <a href="#!cart" class="btn btn-outline-light px-4 py-2">
-      Ir para pagamento
-    </a>
-  </div>
-
-
-  <div class="container-fluid bg-black text-white py-5 px-4">
-  <h2 class="fw-light mb-4">
-    Carrinho <span class="fw-bold">(2 items)</span>
-  </h2>
-  <hr class="border-secondary">
-
-  <!-- Item do carrinho -->
-  <div class="d-flex align-items-center mb-4">
-    <img src="/views/static/imgs/shop2.png" alt="" class="me-3 rounded" style="width: 100px; height: auto;">
-    
-    <div class="flex-grow-1">
-      <h4 class="mb-1">Salada de Frango</h4>
-      <p class="mb-1">R$ 80,00</p>
-
-      <!-- Quantidade -->
-      <div class="d-flex align-items-center">
-        <button class="btn btn-outline-light btn-sm">−</button>
-        <span class="mx-3">2</span>
-        <button class="btn btn-outline-light btn-sm">+</button>
-      </div>
+<div class="container-fluid bg-black text-white py-5 px-5" ng-controller="CartController">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="display-4">Carrinho</h1>
+        <!-- Botão "Ir para pagamento" desabilitado se não houver userId ou se o carrinho estiver vazio -->
+        <a href="#!checkout" class="btn btn-outline-light px-4 py-2" ng-click="goToCheckout()" ng-disabled="!userId || cartItems.length === 0">
+            Ir para pagamento
+        </a>
     </div>
 
-    <!-- Total item -->
-    <div class="text-end">
-      <p class="fs-5">R$ 160,00</p>
-      <button class="btn btn-link text-danger"><i class="bi bi-trash"></i></button>
+    <div class="container-fluid bg-black text-white py-5 px-4">
+        <!-- Mensagem de feedback do controller, aparece se houver uma mensagem para exibir -->
+        <p ng-if="message" class="alert alert-info text-center">{{ message }}</p>
+
+        <!-- Se o usuário NÃO ESTIVER logado, exibe esta mensagem e um botão para login -->
+        <div ng-if="!userId" class="text-center py-4">
+            <p class="fs-5 text-danger">Você precisa estar logado para ver e gerenciar seu carrinho.</p>
+            <a href="#!login" class="btn btn-primary mt-3">Fazer Login</a>
+        </div>
+
+        <!-- Conteúdo PRINCIPAL do carrinho: visível APENAS SE O USUÁRIO ESTIVER LOGADO (ng-if="userId") -->
+        <div ng-if="userId">
+            <h2 class="fw-light mb-4">
+                Carrinho <span class="fw-bold">({{ cartItems.length }} {{ cartItems.length === 1 ? 'item' : 'itens' }})</span>
+            </h2>
+            <hr class="border-secondary">
+
+            <!-- Mensagem se o usuário estiver logado, mas o carrinho está vazio -->
+            <div ng-if="cartItems.length === 0" class="text-center py-4">
+                <p class="fs-5">Seu carrinho está vazio. <a href="#!menu" class="text-white text-decoration-underline">Adicione alguns itens!</a></p>
+            </div>
+
+            <!-- Itera sobre os itens do carrinho usando ng-repeat.
+                 Este ng-repeat está dentro do ng-if="userId", então só será processado se o usuário estiver logado. -->
+            <div ng-repeat="item in cartItems">
+                <div class="d-flex align-items-center mb-4">
+                    <img ng-src="{{item.image}}" alt="{{item.name}}" class="me-3 rounded" style="width: 100px; height: auto;">
+
+                    <div class="flex-grow-1">
+                        <h4 class="mb-1">{{item.name}}</h4>
+                        <p class="mb-1">Preço unitário: R$ {{item.preco | number:2}}</p>
+
+                        <div class="d-flex align-items-center">
+                            <!-- Botões de quantidade: ng-disabled não é estritamente necessário aqui
+                                 pois todo o bloco já está dentro de ng-if="userId", mas reforça a intenção. -->
+                            <button class="btn btn-outline-light btn-sm" ng-click="decrementQuantity(item)">−</button>
+                            <span class="mx-3">{{item.quantity}}</span>
+                            <button class="btn btn-outline-light btn-sm" ng-click="incrementQuantity(item)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <p class="fs-5">Total do item: R$ {{(item.preco * item.quantity) | number:2}}</p>
+                        <!-- Botão de remover item: ng-disabled também não é estritamente necessário aqui. -->
+                        <button class="btn btn-link text-danger" ng-click="removeItem(item)"><i class="fas fa-trash-alt"></i> Remover</button>
+                    </div>
+                </div>
+                <hr class="border-secondary">
+            </div>
+
+            <!-- Subtotal Geral do Carrinho: visível APENAS SE O USUÁRIO ESTIVER LOGADO -->
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                <h5 class="mb-0">Subtotal do Carrinho</h5>
+                <h5 class="mb-0">R$ {{cartTotal | number:2}}</h5>
+            </div>
+
+            <!-- Botão Checkout: visível APENAS SE O USUÁRIO ESTIVER LOGADO -->
+            <div class="d-grid gap-3">
+                <button class="btn btn-outline-light fw-bold py-2" ng-click="goToCheckout()" ng-disabled="cartItems.length === 0">Checkout</button>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <hr class="border-secondary">
-
-  <!-- Subtotal -->
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="mb-0">Subtotal</h5>
-    <h5 class="mb-0">R$ 160,00</h5>
-  </div>
-
-  <!-- Botões -->
-  <div class="d-grid gap-3">
-    <button class="btn btn-outline-light fw-bold py-2">Checkout</button>
-  </div>
-
-</div>
-
 </div>

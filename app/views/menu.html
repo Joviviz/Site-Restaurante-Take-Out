@@ -1,139 +1,62 @@
-<!-- Stylesheet-->
+<!-- views/menu.html - Conteúdo Atualizado e Completo -->
+
+<!-- Stylesheet: Link para o CSS específico do menu -->
 <link href="/views/static/css/menu.css" rel="stylesheet" />
 
+<!-- Inclui a barra de navegação (navbar) no topo da página -->
 <ng-include src="'views/navbar.html'"></ng-include>
 
-<div class="container-fluid bg-black text-white py-5 px-5">
-  <div class="d-flex justify-content-between align-items-center">
+<!-- Contêiner principal para toda a página do cardápio, associado ao MenuController -->
+<!-- ATENÇÃO: ng-controller="MenuController" foi movido para esta div pai.
+     Isso garante que todos os elementos do cardápio abaixo tenham acesso
+     ao escopo do MenuController. -->
+<div class="main-content-menu container-fluid bg-black text-white py-5 px-5" ng-controller="MenuController">
+
+  <!-- Cabeçalho do Cardápio -->
+  <div class="d-flex justify-content-between align-items-center mb-5">
     <h1 class="display-4">Cardápio</h1>
+    <!-- TESTE DE ANGULAR: Verifique se este texto aparece na sua página -->
+    <p class="text-white">Status do Menu: {{ menuItems.length }} itens carregados.</p>
+    <!-- FIM DO TESTE -->
     <a href="#!cart" class="btn btn-outline-light px-4 py-2">
-      Adicionar items ao carrinho
+      <!-- Ícone de carrinho da Font Awesome para melhor UX -->
+      <i class="fas fa-shopping-cart me-2"></i> Ir para o Carrinho
     </a>
   </div>
-</div>
 
-<div class="container mt-5">
-
-  <!-- Fileira 1 -->
-  <div class="container py-5 bg-black text-white">
+  <!-- Contêiner para os itens do cardápio -->
+  <div class="container mt-5 py-5 bg-black text-white">
     <div class="row g-4">
-      <div class="col-md-4">
+      <!-- ng-repeat: Itera sobre a lista 'menuItems' que é populada no MenuController.
+           Para cada 'item' na lista, um novo 'col-md-4' (card de item) será criado.
+           Agora, este ng-repeat está dentro do escopo do MenuController. -->
+      <div class="col-md-4" ng-repeat="item in menuItems">
         <div class="card border border-white bg-black text-white">
+          <!-- ng-src: Carrega a imagem do item dinamicamente a partir da propriedade 'image' do item. -->
           <img
-            src="/views/static/imgs/shop1.png"
+            ng-src="{{item.image}}"
             class="card-img-top"
-            alt=""
+            alt="{{item.name}}"
           />
           <div class="card-body text-center">
-            <h5 class="card-title">Sorvete de Baunilha</h5>
-            <p class="card-text">R$ 25,00</p>
+            <!-- {{item.name}}: Exibe o nome do item. -->
+            <h5 class="card-title">{{item.name}}</h5>
+            <!-- {{item.price | number:2}}: Exibe o preço do item, formatado com 2 casas decimais. -->
+            <p class="card-text">R$ {{item.price | number:2}}</p>
             <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-              <button class="btn btn-outline-light btn-sm">+</button>
+              <!-- ng-click="updateQuantityInMenu(item, -1)": Botão para decrementar a quantidade.
+                   Chama a função no MenuController, passando o item e um delta de -1. -->
+              <button class="btn btn-outline-light btn-sm" ng-click="updateQuantityInMenu(item, -1)">−</button>
+              <!-- {{item.quantityInMenu}}: Exibe a quantidade atual selecionada para o item. -->
+              <span>{{item.quantityInMenu}}</span>
+              <!-- ng-click="updateQuantityInMenu(item, 1)": Botão para incrementar a quantidade.
+                   Chama a função no MenuController, passando o item e um delta de 1. -->
+              <button class="btn btn-outline-light btn-sm" ng-click="updateQuantityInMenu(item, 1)">+</button>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border border-white bg-black text-white">
-          <img
-            src="/views/static/imgs/shop2.png"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">Salada de Frango</h5>
-            <p class="card-text">R$ 80,00</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-
-              <button class="btn btn-outline-light btn-sm">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border border-white bg-black text-white">
-          <img
-            src="/views/static/imgs/shop3.png"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">Rolinho de Privameva</h5>
-            <p class="card-text">R$ 50,00</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-              <button class="btn btn-outline-light btn-sm">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Fileira 2 -->
-  <div class="container py-5 bg-black text-white">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border border-white bg-black text-white">
-          <img
-            src="/views/static/imgs/shop4.png"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">Cogumelos Recheados</h5>
-            <p class="card-text">R$ 40,00</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-              <button class="btn btn-outline-light btn-sm">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border border-white bg-black text-white">
-          <img
-            src="/views/static/imgs/shop5.png"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">Pão de Alho</h5>
-            <p class="card-text">R$ 30,00</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-
-              <button class="btn btn-outline-light btn-sm">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border border-white bg-black text-white">
-          <img
-            src="/views/static/imgs/shop6.png"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">Refogado de Legumes</h5>
-            <p class="card-text">R$ 60,00</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <button class="btn btn-outline-light btn-sm">−</button>
-              <span>0</span>
-              <button class="btn btn-outline-light btn-sm">+</button>
-            </div>
+            <!-- Botão Adicionar ao Carrinho -->
+            <!-- ng-click="addToCart(item)": Adiciona o item ao carrinho.
+                 ng-disabled="item.quantityInMenu === 0": Desabilita o botão se a quantidade for 0. -->
+            <button class="btn btn-success mt-3" ng-click="addToCart(item)" ng-disabled="item.quantityInMenu === 0">Adicionar ao Carrinho</button>
           </div>
         </div>
       </div>
